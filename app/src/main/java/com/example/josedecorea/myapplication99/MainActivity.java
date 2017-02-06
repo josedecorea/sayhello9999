@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
         ListViewAdapter adapter;
         ArrayList<ListViewItem >listViewItemList = new ArrayList<ListViewItem>() ;
 
-        /* 1. 언어설정 가져오기  */
+        /* 1. 언어설정 가져와서 언어 테이블 컬럼명 가지고 오기  */
         /*
         Locale systemLocale = getApplicationContext().getResources().getConfiguration().locale;
         lang_code = systemLocale.getLanguage(); // ko
