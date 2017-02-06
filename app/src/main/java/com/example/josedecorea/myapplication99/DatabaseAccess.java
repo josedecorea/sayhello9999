@@ -103,4 +103,8 @@ public class DatabaseAccess {
         return listViewItemList;
     }
 
+    /**
+     *  hello, thanks, loveu 가지고 오기
+     */
+
 }
