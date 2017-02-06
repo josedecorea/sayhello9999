@@ -104,7 +104,7 @@ public class DatabaseAccess {
     }
 
     /**
-     *  hello, thanks, loveu 가지고 오기
+     *  hello, thanks, love u 가지고 오기
      */
 
 }
