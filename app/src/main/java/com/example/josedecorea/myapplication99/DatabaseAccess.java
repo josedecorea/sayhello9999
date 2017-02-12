@@ -65,7 +65,9 @@ public class DatabaseAccess {
         String LangTableName;
         final String DefaultLangName = "en_name";
 
-        Cursor cursor = database.rawQuery("SELECT lang_tab_name FROM LangTable where lang_code =" + lang_code , null);
+        Cursor cursor = database.rawQuery("SELECT lang_table_name FROM lang_table where lang_code='" + lang_code + "'" , null);
+
+        cursor.moveToFirst();
 
         if(cursor.getCount() == 0) {
 
@@ -87,21 +89,18 @@ public class DatabaseAccess {
 
         ArrayList<ListViewItem>listViewItemList = new ArrayList<ListViewItem>() ;
 
-        Cursor cursor = database.rawQuery("SELECT " + "nation_code, flag_loc, " + lang_code + " FROM nation_table", null);
+        Cursor cursor = database.rawQuery("SELECT " + "nation_code, " + lang_code + " FROM nation_table", null);
 
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
 
             ListViewItem item = new ListViewItem();
-
-            //item.setIcon(Integer.parseInt(cursor.getString(1).toLowerCase()));
-            //item.setIcon(Integer.parseInt("R.drawable.abw"));
-
+            
             item.setNcode(cursor.getString(0));
             int res = context.getResources().getIdentifier(cursor.getString(0).toLowerCase(), "drawable", context.getPackageName());
             item.setIcon(res);
-            item.setTitle(cursor.getString(2));
+            item.setTitle(cursor.getString(1));
             listViewItemList.add(item);
             cursor.moveToNext();
         }

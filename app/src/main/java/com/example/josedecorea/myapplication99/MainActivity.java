@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
         ArrayList<ListViewItem >listViewItemList = new ArrayList<ListViewItem>() ;
 
         /* 1. 언어설정 가져와서 언어 테이블 컬럼명 가지고 오기  */
-        /*
+
         Locale systemLocale = getApplicationContext().getResources().getConfiguration().locale;
         lang_code = systemLocale.getLanguage(); // ko
 
@@ -28,13 +28,13 @@ public class MainActivity extends Activity {
         databaseAccess.open();
         lang_tab_name = databaseAccess.getLangTableName(lang_code);
         databaseAccess.close();
-        */
+
 
         /* 2. 언어에 따른 국가명 가져오기  */
 
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        //DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        listViewItemList = databaseAccess.getNationName("zh_name");
+        listViewItemList = databaseAccess.getNationName(lang_tab_name);
         databaseAccess.close();
 
         // Adapter 생성
