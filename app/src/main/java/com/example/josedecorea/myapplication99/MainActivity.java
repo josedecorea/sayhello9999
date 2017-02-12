@@ -30,12 +30,11 @@ public class MainActivity extends Activity {
         databaseAccess.close();
         */
 
-
         /* 2. 언어에 따른 국가명 가져오기  */
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        listViewItemList = databaseAccess.getNationName("jp_name");
+        listViewItemList = databaseAccess.getNationName("zh_name");
         databaseAccess.close();
 
         // Adapter 생성

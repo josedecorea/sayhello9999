@@ -15,6 +15,7 @@ public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
     private static DatabaseAccess instance;
+    private Context context;
 
     /**
      * Private constructor to aboid object creation from outside classes.
@@ -23,6 +24,7 @@ public class DatabaseAccess {
      */
     private DatabaseAccess(Context context) {
         this.openHelper = new DatabaseOpenHelper(context);
+        this.context=context;
     }
 
     /**
@@ -85,7 +87,7 @@ public class DatabaseAccess {
 
         ArrayList<ListViewItem>listViewItemList = new ArrayList<ListViewItem>() ;
 
-        Cursor cursor = database.rawQuery("SELECT " + lang_code + " FROM ioc_code", null);
+        Cursor cursor = database.rawQuery("SELECT " + "nation_code, flag_loc, " + lang_code + " FROM nation_table", null);
 
         cursor.moveToFirst();
 
@@ -93,8 +95,13 @@ public class DatabaseAccess {
 
             ListViewItem item = new ListViewItem();
 
-            item.setIcon(R.drawable.flag_of_south_korea);
-            item.setTitle(cursor.getString(0));
+            //item.setIcon(Integer.parseInt(cursor.getString(1).toLowerCase()));
+            //item.setIcon(Integer.parseInt("R.drawable.abw"));
+
+            item.setNcode(cursor.getString(0));
+            int res = context.getResources().getIdentifier(cursor.getString(0).toLowerCase(), "drawable", context.getPackageName());
+            item.setIcon(res);
+            item.setTitle(cursor.getString(2));
             listViewItemList.add(item);
             cursor.moveToNext();
         }
