@@ -96,7 +96,7 @@ public class DatabaseAccess {
         while (!cursor.isAfterLast()) {
 
             ListViewItem item = new ListViewItem();
-            
+
             item.setNcode(cursor.getString(0));
             int res = context.getResources().getIdentifier(cursor.getString(0).toLowerCase(), "drawable", context.getPackageName());
             item.setIcon(res);
