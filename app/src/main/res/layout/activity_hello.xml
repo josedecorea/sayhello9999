@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="400dip"
@@ -11,7 +12,8 @@
         android:layout_width="60sp"
         android:layout_height="60sp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        app:srcCompat="@android:drawable/presence_online" />
 
     <TextView
         android:id="@+id/text1"
@@ -42,14 +44,16 @@
         android:layout_alignParentRight="true"
         android:text="play" />
 
-
     <ImageView
         android:id="@+id/img2"
         android:layout_width="60sp"
         android:layout_height="60sp"
         android:layout_below="@+id/img1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        app:srcCompat="@android:drawable/presence_busy"
+        />
+
 
     <TextView
         android:id="@+id/text2"
@@ -90,7 +94,8 @@
         android:layout_height="60sp"
         android:layout_below="@+id/img2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
 
     <TextView
         android:id="@+id/text3"
@@ -123,8 +128,6 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/btn2"
         android:text="play3" />
-
-
 
 
 </RelativeLayout>

@@ -109,8 +109,45 @@ public class DatabaseAccess {
         return listViewItemList;
     }
 
+
+
     /**
      *  hello, thanks, love u 가지고 오기
      */
+
+    public HelloItem getHelloItem(String ncode) {
+
+        HelloItem item = new HelloItem();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM hello_table where nation_code='" + ncode + "'" , null);
+
+        cursor.moveToFirst();
+
+        if(cursor.getCount() == 0) {
+            // error 처리
+        }else {
+
+            item.setNcode(cursor.getString(0));
+
+            item.setTitle1(cursor.getString(1));
+            item.setSub1(cursor.getString(2));
+            //item.setAudio();
+
+            item.setTitle2(cursor.getString(3));
+            item.setSub2(cursor.getString(4));
+            //item.setAudio2();
+
+            item.setTitle3(cursor.getString(5));
+            item.setSub3(cursor.getString(6));
+            //item.setAudio3();
+
+            //item.setWikiurl();
+
+            cursor.close();
+        }
+        return item;
+
+    }
+
 
 }

@@ -5,18 +5,17 @@ package com.example.josedecorea.myapplication99;
  */
 
 public class HelloItem{
+    
+    private String ncodeStr;
 
-    private int iconDrawable1;
     private String titleStr1 ;
     private String subStr1;
     private String audioStr1;
 
-    private int iconDrawable2;
     private String titleStr2 ;
     private String subStr2;
     private String audioStr2;
 
-    private int iconDrawable3;
     private String titleStr3;
     private String subStr3;
     private String audioStr3;
@@ -24,23 +23,27 @@ public class HelloItem{
     private String wikiurl;
 
 
-    public void setIcon1(int icon1) {
-        iconDrawable1 = icon1;
+    public void setNcode(String ncode) {
+        ncodeStr = ncode;
     }
-    public void setTitle(String title1) {
+
+    public String getNcode() {
+        return this.ncodeStr ;
+    }
+
+
+
+    public void setTitle1(String title1) {
         titleStr1 = title1;
     }
-    public void setSub(String sub1) {
+    public void setSub1(String sub1) {
         subStr1 = sub1;
     }
-    public void setAudio(String audio1) {
+    public void setAudio1(String audio1) {
         audioStr1 = audio1;
     }
 
 
-    public int getIcon1() {
-        return this.iconDrawable1 ;
-    }
     public String getTitle1() {
         return this.titleStr1 ;
     }
@@ -52,11 +55,6 @@ public class HelloItem{
     }
 
 
-
-
-    public void setIcon2(int icon2) {
-        iconDrawable2 = icon2;
-    }
     public void setTitle2(String title2) {
         titleStr2 = title2;
     }
@@ -67,9 +65,6 @@ public class HelloItem{
         audioStr2 = audio2;
     }
 
-    public int getIcon2() {
-        return this.iconDrawable2 ;
-    }
     public String getTitle2() {
         return this.titleStr2 ;
     }
@@ -82,10 +77,6 @@ public class HelloItem{
 
 
 
-
-    public void setIcon3(int icon3) {
-        iconDrawable3 = icon3;
-    }
     public void setTitle3(String title3) {
         titleStr3 = title3;
     }
@@ -96,9 +87,6 @@ public class HelloItem{
         audioStr3 = audio3;
     }
 
-    public int getIcon3() {
-        return this.iconDrawable3 ;
-    }
     public String getTitle3() {
         return this.titleStr3 ;
     }
@@ -108,7 +96,6 @@ public class HelloItem{
     public String getAudio3() {
         return this.audioStr3 ;
     }
-
 
 
     public void setWikiurl(String uri) {

@@ -2,13 +2,28 @@ package com.example.josedecorea.myapplication99;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends Activity {
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,5 +60,26 @@ public class MainActivity extends Activity {
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
+
+        final ArrayList<ListViewItem> finalListViewItemList = listViewItemList;
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String ncode;
+                Intent intent = new Intent(getApplicationContext(), HelloActivity.class);
+
+                ncode = finalListViewItemList.get(position).getNcode();
+                intent.putExtra("nation_code", ncode);
+
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        ncode, Toast.LENGTH_LONG);
+                toast.show();
+
+                startActivity(intent);
+            }
+        });
+
     }
 }
