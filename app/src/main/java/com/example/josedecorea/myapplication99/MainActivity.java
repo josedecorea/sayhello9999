@@ -1,7 +1,9 @@
 package com.example.josedecorea.myapplication99;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -15,9 +17,9 @@ public class MainActivity extends Activity {
 
         String lang_code, lang_tab_name;
 
-        ListView listview ;
+        ListView listview;
         ListViewAdapter adapter;
-        ArrayList<ListViewItem >listViewItemList = new ArrayList<ListViewItem>() ;
+        ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
 
         /* 1. 언어설정 가져와서 언어 테이블 컬럼명 가지고 오기  */
 
@@ -43,6 +45,5 @@ public class MainActivity extends Activity {
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
-
     }
 }

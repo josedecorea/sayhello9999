@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="400dip"
+    android:padding="5dip"
+    tools:context="com.example.josedecorea.myapplication99.HelloActivity"
+>
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="26sp"
+        android:text="text1"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img1" />
+
+    <TextView
+        android:id="@+id/text1sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="18sp"
+        android:text="text1sub"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img1"
+        android:layout_below="@id/text1" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:text="play" />
+
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_below="@+id/img1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="26sp"
+        android:text="text2"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img2"
+        android:layout_below="@id/text1sub"
+        />
+
+    <TextView
+        android:id="@+id/text2sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="18sp"
+        android:text="text2sub"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img2"
+        android:layout_below="@id/text2" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/btn1"
+        android:text="play2" />
+
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_below="@+id/img2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="26sp"
+        android:text="text3"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img3"
+        android:layout_below="@id/text2sub"
+        />
+
+    <TextView
+        android:id="@+id/text3sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:textSize="18sp"
+        android:text="text3sub"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img3"
+        android:layout_below="@id/text3" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/btn2"
+        android:text="play3" />
+
+
+
+
+</RelativeLayout>
