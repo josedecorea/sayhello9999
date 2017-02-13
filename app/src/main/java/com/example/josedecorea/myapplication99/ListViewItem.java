@@ -4,8 +4,6 @@ package com.example.josedecorea.myapplication99;
  * Created by jose de corea on 2017-02-05.
  */
 
-import android.graphics.drawable.Drawable;
-
 public class ListViewItem {
     private String ncodeStr;
     private int iconDrawable;

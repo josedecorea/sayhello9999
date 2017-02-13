@@ -1,35 +1,31 @@
 package com.example.josedecorea.myapplication99;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends Activity {
+
+    String lang_code, lang_tab_name;
+
+    ListView listview;
+    ListViewAdapter adapter;
+    EditText editsearch;
+    ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String lang_code, lang_tab_name;
-
-        ListView listview;
-        ListViewAdapter adapter;
-        ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
-
         /* 1. 언어설정 가져와서 언어 테이블 컬럼명 가지고 오기  */
 
-        Locale systemLocale = getApplicationContext().getResources().getConfiguration().locale;
-        lang_code = systemLocale.getLanguage(); // ko
+        lang_code = Locale.getDefault().getLanguage();
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
@@ -38,8 +34,6 @@ public class MainActivity extends Activity {
 
 
         /* 2. 언어에 따른 국가명 가져오기  */
-
-        //DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
         listViewItemList = databaseAccess.getNationName(lang_tab_name);
         databaseAccess.close();
@@ -51,23 +45,25 @@ public class MainActivity extends Activity {
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
 
-        final ArrayList<ListViewItem> finalListViewItemList = listViewItemList;
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* 3. 검색어 처리  */
+
+        editsearch = (EditText) findViewById(R.id.search);
+
+        editsearch.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void afterTextChanged(Editable arg0) {
+                String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+                adapter.filter(text);
+            }
 
-                String ncode;
-                Intent intent = new Intent(getApplicationContext(), HelloActivity.class);
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+            }
 
-                ncode = finalListViewItemList.get(position).getNcode();
-                intent.putExtra("nation_code", ncode);
-
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        ncode, Toast.LENGTH_LONG);
-                toast.show();
-
-                startActivity(intent);
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
             }
         });
 
