@@ -5,7 +5,7 @@ package com.example.josedecorea.myapplication99;
  */
 
 public class HelloItem{
-    
+
     private String ncodeStr;
 
     private String titleStr1 ;
